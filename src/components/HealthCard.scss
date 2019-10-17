@@ -1,0 +1,121 @@
+
+@import '../pages/Dashboard/Dashboard.scss';
+
+.card-status-pill{
+    @extend %card-pill;
+    color:#fff;
+    font-weight: 700;
+    background: #333;
+
+  
+}
+
+.health-card-grid {
+    display: grid;
+    box-sizing: border-box;
+    grid-template-columns: repeat(auto-fit, 450px);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+
+    .health-card {
+        display: grid;
+        padding-bottom:20px;
+
+        @extend %card-container;
+
+        &__shadow {
+            @extend %card-shadow;
+        }
+
+        p{ 
+            margin:0;  
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size:1.2em;
+          }
+
+         
+
+        &-status{
+            display: flex;
+            justify-content: space-between;
+            align-content: center;
+            background: rgb(221,221,221);
+            background: linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(207,205,205,1) 100%);
+            padding:10px;
+
+            .incident-time{
+                font-weight:700;
+            }
+        }
+
+        &-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr 1fr;
+            align-items: center;
+            padding:10px;
+
+            span{
+                font-weight: 700;
+                font-size: 1.2em;
+
+            }
+
+            h2{
+                font-weight:400;
+            }
+
+            .logo{
+                justify-self: center;
+            }
+
+         
+        }
+
+        &-success {
+            margin-top:20px;
+            padding: 5px 10px;
+           // font-weight: 700;
+            color: rgb(96,194,40);
+            // background: rgb(96,194,40);
+            // background: linear-gradient(90deg, rgba(96,194,40,1) 39%, rgba(115,195,36,1) 100%, rgba(68,68,68,1) 333%);
+
+        }
+
+        &-error{
+            //font-weight: 700;
+            margin-top:20px;
+            padding: 5px 10px;
+            color: rgb(177,50,45);
+            // background: rgb(177,50,45);
+            // background: linear-gradient(90deg, rgba(177,50,45,1) 0%, rgba(232,36,58,1) 100%);
+
+        }
+
+        &-header{
+            display:flex;
+            background: #333;
+            justify-content: space-between;
+            align-content: center;
+            height:70px;
+
+
+            h4 {
+               @extend %card-pill;
+               color:#fff;
+
+                &.healthy {
+                   background: rgb(96,194,40);
+                   background: linear-gradient(90deg, rgba(96,194,40,1) 39%, rgba(115,195,36,1) 100%, rgba(68,68,68,1) 333%);
+                }
+
+                &.down {
+                    background: rgb(177,50,45);
+                    background: linear-gradient(90deg, rgba(177,50,45,1) 0%, rgba(232,36,58,1) 100%);
+                }
+
+            }
+        }
+
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.scss';
-import App from './App';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<Dashboard />, document.getElementById('root'));
