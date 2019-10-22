@@ -7,7 +7,8 @@ const SYSTEM_DATA = [
         source: "UAT",
         healthy: true,
         internal: true,
-        incidentTime: "1571322600"
+        nextRun: "2019-10-22T16:32:10",
+        incidentTime: "1571394900"
     },
     {
         id: "edbb0221-c71a-4b2d-a636-3b794a5814f3",
@@ -16,7 +17,8 @@ const SYSTEM_DATA = [
         source: "DEV",
         healthy: true,
         internal: true,
-        incidentTime: "1571325300"
+        nextRun: "2019-10-22T15:24:23",
+        incidentTime: "1571391600"
     },
     {
         id: "3d761605-6b17-4783-a83d-36bf115f0d74",
@@ -25,7 +27,8 @@ const SYSTEM_DATA = [
         source: "PPE",
         healthy: true,
         internal: true,
-        incidentTime: "1571326800"
+        nextRun: "2019-10-22T15:24:23",
+        incidentTime: "1571392920"
     },
 
     {
@@ -35,7 +38,8 @@ const SYSTEM_DATA = [
         source: "UAT",
         healthy: false,
         internal: false,
-        incidentTime: "1556116743",
+        incidentTime: "1571387400",
+        nextRun: "2019-10-22T15:24:23",
         error: "Unauthorised access to the message queue kfkjdshkflhalkfsdf idhfisdkfyvdjlsfg uaigfiasgfgasuf uafiasugfsa"
     },
         {
@@ -45,6 +49,7 @@ const SYSTEM_DATA = [
         source: "DEV",
         healthy: false,
         internal: true,
+        nextRun: "2019-10-22T15:24:23",
         incidentTime: "1565910960",
         error: "The system is down"
     },
@@ -55,6 +60,7 @@ const SYSTEM_DATA = [
         source: "PPE",
         healthy: true,
         internal: false,
+        nextRun: "2019-10-22T15:24:23",
         incidentTime: "1566424925"
     }
     

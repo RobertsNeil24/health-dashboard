@@ -1,5 +1,5 @@
 
-@import '../pages/Dashboard/Dashboard.scss';
+@import './Dashboard.scss';
 
 .card-status-pill{
     @extend %card-pill;
@@ -13,7 +13,7 @@
 .health-card-grid {
     display: grid;
     box-sizing: border-box;
-    grid-template-columns: repeat(auto-fit, 450px);
+    grid-template-columns: repeat(auto-fit, 400px);
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
 

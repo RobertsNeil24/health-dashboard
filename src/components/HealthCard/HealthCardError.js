@@ -1,6 +1,6 @@
 import React from 'react'; 
-import alert from '../images/alert.svg'
-import '../Errorpulse.scss';
+import alert from '../../images/alert.svg'
+import '../../styles/Errorpulse.scss';
 
 const HealthErrorAlert = () => {
     return (

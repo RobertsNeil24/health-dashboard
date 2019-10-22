@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import './Dashboard.scss';
-//import socketIOClient from "socket.io-client";
+import '../../styles/Dashboard.scss';
+import socketIOClient from "socket.io-client";
 import SYSTEM_DATA from '../../system.data';
+import moment from 'moment';
 
-import HealthCardList from '../../components/HealthCardList';
+import HealthCardList from '../../components/HealthCard/HealthCardList';
 
 class Dashboard extends Component {
 
@@ -12,28 +13,50 @@ class Dashboard extends Component {
 
         this.state = {
             healthApps: [],
+            runner: '',
+            nextRun: ''
         }
     }
 
     async componentDidMount() {
-
-       // const socket = socketIOClient('http://24.154.155.182:2222');
-        //Listen for data on the "outgoing data" namespace and supply a callback for what to do when we get one. In this case, we set a state variable
-        // socket.on("data", data => this.setState({healthApps: data}));
-
-        //socket.on("data", data => this.setState({ healthApps: data}));
-        // socket = openSocket('http://24.154.155.182:2222');
-        //console.log(socket);
-       // const response = await axios.get('./health-apps.json');
-        this.setState({ healthApps: SYSTEM_DATA });
+        //this.loadSocket();
+        this.loadMockData();
     }
 
-   
+    loadSocket() {
+        const socket = socketIOClient('http://24.154.155.182:2222');
+        socket.on("data", data => {
+            this.setState({ healthApps: data });
+        })
+    }
+
+    loadMockData() {
+        this.setState({ healthApps: SYSTEM_DATA });
+        this.setState({ runner: SYSTEM_DATA[0].nextRun });
+
+        setInterval(() => {
+            let next = moment(this.state.runner);
+            let now = moment(new Date());
+
+            let ms = moment(next,"DD/MM/YYYY HH:mm:ss").diff(moment(now,"DD/MM/YYYY HH:mm:ss"));
+            let d = moment.duration(ms);
+            
+            let hours = d.hours() > 0 ? d.hours() + ' hours ' : '';
+            let mins = d.minutes() > 0 ? d.minutes() + ' minutes ' : '';
+            let sec = d.seconds() > 0 ? d.seconds() + ' seconds ' : '';
+
+           
+            this.setState({ nextRun: hours + mins + sec });
+
+        }, 1000);
+    }
 
     render() {
         return (
             <div className="container">
-                <HealthCardList applications={ this.state.healthApps } />
+                <h2>Payments Health Dashboard</h2>
+                Next Update: {this.state.nextRun}
+                <HealthCardList applications={this.state.healthApps} />
             </div>
         );
     }

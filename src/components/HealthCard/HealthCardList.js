@@ -3,8 +3,8 @@ import HealthCard from './HealthCard';
 
 
     const HealthCardList = ({ applications }) => {
-        const healthCards = applications.map((app) => {
-            return <HealthCard key={app.id} appdata={app} />;
+        const healthCards = applications.map((card) => {
+            return <HealthCard key={card.id} cardData={card} />;
         });
     
         return <div className="health-card-grid">{healthCards}</div>;

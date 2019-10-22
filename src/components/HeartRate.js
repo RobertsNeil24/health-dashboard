@@ -1,11 +1,11 @@
 import React from 'react'; 
-import heartbeat from '../images/heartrate.svg'
-import '../Heartrate.scss';
+import heartrate from '../images/heartrate.svg'
+import '../styles/Heartrate.scss';
 
 const HeartRate = () => {
     return (
         <div className="heart-rate">
-            <img src={heartbeat} className="App-logo" alt="heartbeat" />
+            <img src={heartrate} className="App-logo" alt="heartrate" />
             <div className="fade-in"></div>
             <div className="fade-out"></div>
         </div>

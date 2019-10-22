@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class SystemImage extends Component {
+class SystemLogo extends Component {
 
     constructor(props) {
         super(props);
@@ -29,4 +29,4 @@ class SystemImage extends Component {
     }
 }
 
-export default SystemImage;
+export default SystemLogo;
