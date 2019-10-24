@@ -7,7 +7,7 @@ class Timer extends Component {
          super(props);
 
          this.state = {
-             incidentTime : ''
+             incidentTime : 'No incident has occurred'
          }
     }
     
@@ -20,10 +20,10 @@ class Timer extends Component {
      CalculateIncidentTime() {
      
         const { datetime } = this.props; 
-        // let now = moment('2019-10-18T12:24:23');
-        if (datetime) {
-            let incidentTime = moment(datetime).fromNow();
-            this.setState({ incidentTime : incidentTime });
+        if (datetime !== '') {
+            let time = moment(datetime).format("dddd, MMMM Do YYYY, HH:mm");
+            console.log('time', time);
+            this.setState({ incidentTime : time });
         }       
      }
 
@@ -31,7 +31,7 @@ class Timer extends Component {
     render() {
         return (
             <div>
-                { this.state.incidentTime }            
+                <span className="time">{ this.state.incidentTime } </span>         
             </div>
         );
     }

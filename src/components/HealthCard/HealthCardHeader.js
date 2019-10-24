@@ -7,8 +7,7 @@ const HealthCardHeader = ({ healthy }) => {
     return (
     <div className="health-card-header">
         <h4 className={`${healthy ? 'healthy' : 'down'}`}> {healthy ? "Healthy" : "System Down"}</h4>
-        <div>{healthy && <HeartRate />}
-            {!healthy && <HealthError />}</div>
+        <div>{healthy && <HeartRate />}{!healthy && <HealthError />}</div>
     </div>)
 }
 

@@ -5,7 +5,7 @@
     @extend %card-pill;
     color:#fff;
     font-weight: 700;
-    background: #333;
+    background: #000;
 
   
 }
@@ -13,13 +13,14 @@
 .health-card-grid {
     display: grid;
     box-sizing: border-box;
-    grid-template-columns: repeat(auto-fit, 400px);
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
+    
 
     .health-card {
         display: grid;
-        padding-bottom:20px;
+        padding-bottom:10px;
 
         @extend %card-container;
 
@@ -33,6 +34,23 @@
             text-transform: uppercase;
             font-size:1.2em;
           }
+
+          .countdown{
+            display:flex;
+             justify-content: space-between;
+        
+            p {
+                font-size:1em;
+                color: #fff;
+                font-weight: 700;
+                padding:5px 15px;
+                text-transform: none;
+
+                &.title {
+                    text-transform: uppercase;
+                }
+            }
+        }
 
          
 
@@ -62,6 +80,7 @@
             }
 
             h2{
+                color: #fff;
                 font-weight:400;
             }
 
@@ -73,31 +92,24 @@
         }
 
         &-success {
-            margin-top:20px;
-            padding: 5px 10px;
+            padding: 10px 15px;
            // font-weight: 700;
-            color: rgb(96,194,40);
-            // background: rgb(96,194,40);
-            // background: linear-gradient(90deg, rgba(96,194,40,1) 39%, rgba(115,195,36,1) 100%, rgba(68,68,68,1) 333%);
-
+            color:#2ef1c9;
         }
 
         &-error{
-            //font-weight: 700;
-            margin-top:20px;
-            padding: 5px 10px;
-            color: rgb(177,50,45);
-            // background: rgb(177,50,45);
-            // background: linear-gradient(90deg, rgba(177,50,45,1) 0%, rgba(232,36,58,1) 100%);
 
+            padding: 10px 15px;
+            color: #f65e5f;
         }
 
         &-header{
             display:flex;
-            background: #333;
+            background: #3F3D49;
             justify-content: space-between;
             align-content: center;
-            height:70px;
+            border-radius: 5px 5px 0px 0px;
+
 
 
             h4 {
@@ -105,13 +117,12 @@
                color:#fff;
 
                 &.healthy {
-                   background: rgb(96,194,40);
-                   background: linear-gradient(90deg, rgba(96,194,40,1) 39%, rgba(115,195,36,1) 100%, rgba(68,68,68,1) 333%);
-                }
+                    background: rgb(46,241,201);
+                    background: linear-gradient(270deg, rgba(46,241,201,1) 0%, rgba(38,175,165,1) 100%);             }
 
                 &.down {
-                    background: rgb(177,50,45);
-                    background: linear-gradient(90deg, rgba(177,50,45,1) 0%, rgba(232,36,58,1) 100%);
+                    background: rgb(236,79,62);
+                    background: linear-gradient(90deg, rgba(236,79,62,1) 0%, rgba(230,36,100,1) 100%);
                 }
 
             }

@@ -1,8 +1,8 @@
 import React from 'react';
 import Timer from '../Timer';
 
-const HealthStatus = (props) => {
-    const healthyMsg = 'Time since last incident';
+const HealthCardStatus = (props) => {
+    const healthyMsg = 'Time of last incident';
     if (!props.healthy) {
        
         return (
@@ -27,5 +27,5 @@ const HealthStatus = (props) => {
 }
 
 
-export default HealthStatus;
+export default HealthCardStatus;
 
