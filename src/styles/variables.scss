@@ -1,5 +1,6 @@
 :root {  
     --primary-grey: #3F3D49;
+    --light-grey:#efefef;
     --dark-grey: rgba(42, 42, 44, 0.6);
     --darkest-grey: #202020;
     --dark-grey-gradient: #2a2735;
@@ -9,6 +10,8 @@
     --card-shadow: rgba(0, 0, 0, 0.2);
     --white: #fff;
     --black: #000;
+    --light-text: #bbb;
+    
     --fade-to-black: rgba(51, 51, 51, 0);
 
     --success-primary: #2ef1c9;
@@ -16,7 +19,5 @@
 
     --error-primary: #ec4f3e;
     --error-secondary: #e62464;
-
-
 
 }

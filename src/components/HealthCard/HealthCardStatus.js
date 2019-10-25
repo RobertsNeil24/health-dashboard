@@ -9,7 +9,9 @@ const HealthCardStatus = (props) => {
             <div className="item card-status">
                 <div className="card-status-error">
                     <p>Error message</p>
-                    <span> {props.errorMsg}</span>
+                    <div className="message">
+                        {props.errorMsg}
+                    </div>
 
                 </div>
             </div>
@@ -19,10 +21,10 @@ const HealthCardStatus = (props) => {
         <div className="item card-status">
             <div className="card-status-success">
                 <p>No problems detected</p>
-                <span className="incident-time">
-                    {healthyMsg}
+                <div className="message">
+                    <span>{healthyMsg}</span>
                     <HealthCardIncidentDate datetime={props.incidentTime} />
-                </span>
+                </div>
             </div>
         </div>
 
