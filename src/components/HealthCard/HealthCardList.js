@@ -7,7 +7,7 @@ import HealthCard from './HealthCard';
             return <HealthCard key={card.id} cardData={card} />;
         });
     
-        return <div className="health-card-grid">{healthCards}</div>;
+        return <div className="card-grid">{healthCards}</div>;
     };
 
 export default HealthCardList;

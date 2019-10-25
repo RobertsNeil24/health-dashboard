@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.scss';
+import './styles/Base.scss';
 import Dashboard from './pages/Dashboard/Dashboard';
 
 

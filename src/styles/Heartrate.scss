@@ -8,7 +8,7 @@
     position: absolute;
     width: 80%;
     height: 100%;
-    background-color: #3F3D49;
+    background-color: var(--primary-grey);
     top: 0;
     right: 0;
     animation: heartRateIn 3.2s linear infinite;
@@ -21,8 +21,8 @@
     top: 0;
     left: -100%;
     animation: heartRateOut 3.2s linear infinite;
-    background: #3F3D49;
-    background: linear-gradient(to right, #3F3D49 0%, #3F3D49 80%, rgba(51, 51, 51, 0) 100%);
+    background: var(--primary-grey);
+    background: linear-gradient(to right, var(--primary-grey) 0%, var(--primary-grey) 80%, var(--fade-to-black) 100%);
   }
   
   @keyframes heartRateIn {

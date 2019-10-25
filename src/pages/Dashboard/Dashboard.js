@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-import '../../styles/Dashboard.scss';
 import socketIOClient from "socket.io-client";
 import SYSTEM_DATA from '../../system.data';
-
 
 import HealthCardList from '../../components/HealthCard/HealthCardList';
 
@@ -22,10 +20,12 @@ class Dashboard extends Component {
     }
 
     loadSocket() {
-        const socket = socketIOClient('http://localhost:2222');
+       // const socket = socketIOClient('http://24.154.155.182:3000');
+       // const socket = socketIOClient('http://localhost:2222');
+        const socket = socketIOClient('http://healthchecks-server-digital-onlinepayments-dev.apps.nonprod.ocp.absa.co.za/');
         socket.on("data", data => {
             this.setState({ healthApps: data }, () => {
-                console.log('data', data);
+                
             });
         })
     }

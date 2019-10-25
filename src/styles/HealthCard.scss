@@ -1,26 +1,23 @@
 
-@import './Dashboard.scss';
-
-.card-status-pill{
+.card-status-pill {
     @extend %card-pill;
-    color:#fff;
+    color: var(--white);
     font-weight: 700;
-    background: #000;
+    background: var(--darkest-grey);
 
-  
+
 }
 
-.health-card-grid {
+.card-grid {
     display: grid;
     box-sizing: border-box;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     grid-column-gap: 2rem;
     grid-row-gap: 2rem;
-    
 
-    .health-card {
+    .card {
         display: grid;
-        padding-bottom:10px;
+        grid-template-rows: 80px 1fr 1fr 80px;
 
         @extend %card-container;
 
@@ -28,42 +25,46 @@
             @extend %card-shadow;
         }
 
-        p{ 
-            margin:0;  
+        p {
+            margin: 0;
             font-weight: 700;
             text-transform: uppercase;
-            font-size:1.2em;
-          }
-
-          .countdown{
-            display:flex;
-             justify-content: space-between;
-        
-            p {
-                font-size:1em;
-                color: #fff;
-                font-weight: 700;
-                padding:5px 15px;
-                text-transform: none;
-
-                &.title {
-                    text-transform: uppercase;
-                }
-            }
+            font-size: 1.2em;
         }
 
-         
+        .item {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
 
-        &-status{
-            display: flex;
-            justify-content: space-between;
+        &-header {
+            display: grid;
+            grid-column-gap: 10px;
+            grid-template-columns: 150px 1fr;
             align-content: center;
-            background: rgb(221,221,221);
-            background: linear-gradient(90deg, rgba(221,221,221,1) 0%, rgba(207,205,205,1) 100%);
-            padding:10px;
+            background-color: var(--primary-grey);
+            border-radius: 5px 5px 0 0;
 
-            .incident-time{
-                font-weight:700;
+
+            &-icon {
+                justify-self: end;
+                align-self: center;
+            }
+
+            h4 {
+                @extend %card-pill;
+                color: var(--white);
+
+                &.healthy {
+                    background: var(--success-primary);
+                    background: linear-gradient(270deg, var(--success-primary) 0%, var(--success-secondary) 100%);
+                }
+
+                &.down {
+                    background: var(--error-primary);
+                    background: linear-gradient(90deg, var(--error-primary) 0%, var(--error-secondary) 100%);
+                }
+
             }
         }
 
@@ -71,62 +72,65 @@
             display: grid;
             grid-template-columns: 1fr 2fr 1fr;
             align-items: center;
-            padding:10px;
+            padding: 10px;
 
-            span{
+            span {
                 font-weight: 700;
                 font-size: 1.2em;
 
             }
 
-            h2{
-                color: #fff;
-                font-weight:400;
+            h2 {
+                color: var(--white);
+                font-weight: 400;
+                text-transform: uppercase;
             }
 
-            .logo{
+            .logo {
                 justify-self: center;
             }
 
-         
+
         }
 
-        &-success {
-            padding: 10px 15px;
-           // font-weight: 700;
-            color:#2ef1c9;
-        }
+        &-status {
+            &-success {
+                padding: 10px 15px;
+                text-align: center;
+                color: var(--success-primary);
 
-        &-error{
-
-            padding: 10px 15px;
-            color: #f65e5f;
-        }
-
-        &-header{
-            display:flex;
-            background: #3F3D49;
-            justify-content: space-between;
-            align-content: center;
-            border-radius: 5px 5px 0px 0px;
-
-
-
-            h4 {
-               @extend %card-pill;
-               color:#fff;
-
-                &.healthy {
-                    background: rgb(46,241,201);
-                    background: linear-gradient(270deg, rgba(46,241,201,1) 0%, rgba(38,175,165,1) 100%);             }
-
-                &.down {
-                    background: rgb(236,79,62);
-                    background: linear-gradient(90deg, rgba(236,79,62,1) 0%, rgba(230,36,100,1) 100%);
+                .incident-date {
+                    @extend %card-pill;
+                    background: var(--darkest-grey);
+                    font-weight: 700;
+                    margin-top: 10px;
                 }
+            }
 
+            &-error {
+                padding: 10px 15px;
+                color: var(--error-primary);
+                text-align: center;
+                padding-bottom: 5px;
             }
         }
 
+        &-countdown {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            padding-bottom: 10px;
+            align-content: end;
+
+            &-time {
+                justify-self: end;
+            }
+
+            p {
+                font-size: 1em;
+                color: var(--white);
+                font-weight: 700;
+                padding: 5px 15px;
+            }
+        }
     }
 }

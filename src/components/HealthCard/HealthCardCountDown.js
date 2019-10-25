@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 
 
-class CountDown extends Component {
+class HealthCardCountDown extends Component {
 
     constructor(props) {
         super(props);
@@ -23,26 +23,26 @@ class CountDown extends Component {
     }
 
     CalculateTime() {
-
-        let next = moment(this.props.nextRun);
-        let now = moment(new Date());
-
-        let ms = moment(next, "DD/MM/YYYY HH:mm:ss").diff(moment(now, "DD/MM/YYYY HH:mm:ss"));
-        let d = moment.duration(ms);
+        let now = moment().valueOf();
+        let d = moment.duration(parseInt(this.props.nextRun) - now);
 
         let hours = d.hours() > 0 ? d.hours() + ' HR ' : '';
         let mins = d.minutes() > 0 ? d.minutes() + ' MIN ' : '';
         let sec = d.seconds() > 0 ? d.seconds() + ' SEC ' : '';
 
-        this.setState({ calculatedTime: hours + mins + sec });
+        this.setState({ calculatedTime: hours + mins + sec});
+
     }
 
     render() {
         return (
-            <div className="countdown"><p>Next update</p><p>{this.state.calculatedTime}</p></div>
+            <div className="item card-countdown">
+                <p>Next update</p>
+                <p className="card-countdown-time">{this.state.calculatedTime}</p>
+            </div>
         )
     }
 
 }
 
-export default CountDown;
+export default HealthCardCountDown;

@@ -1,0 +1,21 @@
+version: '3.5'
+
+services:
+  cib.onlinepayments.healthchecks.client:
+    image: cib.onlinepayments.healthchecks.client:${DOCKER_IMAGE_VERSION}
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        myHTTP_PROXY: ${HTTP_PROXY}
+        myHTTPS_PROXY: ${HTTPS_PROXY}
+        myDATABASE_IP_ADDRESS: ${DATABASE_IP_ADDRESS}
+        myDATABASE_NAME: ${DATABASE_NAME}
+        myDATABASE_USER: ${DATABASE_USER}
+        myDATABASE_PASSWORD: ${DATABASE_PASSWORD}
+    environment:
+      HTTP_PROXY: ${HTTP_PROXY}
+      HTTPS_PROXY: ${HTTPS_PROXY}
+      NO_PROXY: ${NO_PROXY}
+    ports:
+      - "3200:3000"
