@@ -1,8 +1,8 @@
 version: '3.5'
 
 services:
-  cib.onlinepayments.healthchecks.client:
-    image: cib.onlinepayments.healthchecks.client:${DOCKER_IMAGE_VERSION}
+  cib.onlinepayments.healthchecks.ui:
+    image: cib.onlinepayments.healthchecks.ui:v1
     build:
       context: .
       dockerfile: Dockerfile

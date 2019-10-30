@@ -1,28 +1,25 @@
 FROM node:10.17.0-buster
 
-RUN apt-get update --yes
+
+ENV http_proxy 'http://bc-vip.intra.absa.co.za:8080'
+ENV https_proxy 'http://bc-vip.intra.absa.co.za:8080'
+
+EXPOSE 3000
+
+RUN printenv
+#RUN apt-get update --yes
+
+RUN npm install -g http-server
 
 RUN mkdir /home/node/app
 
 RUN chown -R node:node /home/node
-RUN chown -R node:node /home/node/app
 RUN chmod 755 /home/node/app
-
-USER node
 
 WORKDIR /home/node/app
 
-COPY --chown=node:node . .
+COPY --chown=node:node ./build .
 
-RUN npm install
-RUN npm run build
+USER node
 
-WORKDIR /home/node/app/build
-
-
-CMD npm install -g http-server && \
-    npm run build && \
-    cd build && \
-    hs -p 3000; 
-
-EXPOSE 3000
+CMD  hs -p 3000; 
