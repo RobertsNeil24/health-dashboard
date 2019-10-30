@@ -23,7 +23,6 @@ WORKDIR /home/node/app/build
 CMD npm install -g http-server && \
     npm run build && \
     cd build && \
-    hs -p 3000; \   
-    fi
+    hs -p 3000; 
 
 EXPOSE 3000
