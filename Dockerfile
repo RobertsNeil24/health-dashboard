@@ -14,8 +14,16 @@ WORKDIR /home/node/app
 
 COPY --chown=node:node . .
 
-RUN rm -rf node_modules && npm install
-RUN npm install --production
+RUN npm install
+RUN npm run build
 
-EXPOSE 3200
-CMD ["npm", "start"]
+WORKDIR /home/node/app/build
+
+
+CMD npm install -g http-server && \
+    npm run build && \
+    cd build && \
+    hs -p 3000; \   
+    fi
+
+EXPOSE 3000
