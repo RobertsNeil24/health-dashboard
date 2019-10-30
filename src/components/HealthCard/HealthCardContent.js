@@ -1,5 +1,5 @@
 import React from 'react';
-import SystemLogo from '../SystemLogo';
+import SystemLogo from '../common/SystemLogo';
 
 const HealthCardHeader = ({name, application, source}) => (
     <div className="card-content">

@@ -16,11 +16,11 @@ class SystemLogo extends Component {
 
     setSource() {
         try {
-            const src = require(`../assets/${this.props.name.toLowerCase()}.svg`);
+            const src = require(`../../assets/${this.props.name.toLowerCase()}.svg`);
             this.setState({ src });
         }
         catch (err) {
-            this.setState({ src: require(`../assets/default.svg`) })
+            this.setState({ src: require(`../../assets/default.svg`) })
         }
     }
 

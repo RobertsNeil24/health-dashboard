@@ -1,6 +1,6 @@
 import React from 'react'; 
-import heartrate from '../assets/heartrate.svg'
-import '../styles/Heartrate.scss';
+import heartrate from '../../assets/heartrate.svg'
+import '../../styles/Heartrate.scss';
 
 const HeartRate = () => {
     return (

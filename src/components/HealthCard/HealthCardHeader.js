@@ -1,5 +1,5 @@
 import React from 'react';
-import HeartRate from '../HeartRate';
+import HeartRate from '../common/HeartRate';
 import HealthCardError from './HealthCardError';
 
 const HealthCardHeader = ({ healthy }) => {
