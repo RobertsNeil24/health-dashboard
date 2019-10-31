@@ -15,8 +15,8 @@ class Dashboard extends Component {
     }
 
     async componentDidMount() {
-        this.loadSocket();
-        //this.loadMockData();
+       // this.loadSocket();
+        this.loadMockData();
     }
 
     loadSocket() {
