@@ -1,37 +1,38 @@
-import React, { Component } from 'react';
+import React, { useEffect } from 'react';
 import moment from 'moment';
 
-class HealthCardIncidentDate extends Component {
 
-    componentDidMount(){
-        this.CalculateIncidentTime();
+const HealthCardIncidentDate = ({datetime}) => {
+
+  useEffect(() => {
+    CalculateIncidentTime();
+  });
+
+  const CalculateIncidentTime = () => {
+
+    let date = moment(datetime).local();
+    if (!date.isValid()) {
+      return 'No incident logged';
     }
+  
+    let day = date.format('Do');
+    let month = date.format('MMMM');
+    let time = date.format('HH:mm');
+  
+    return day + " " + month + " " + time;
+  }
 
-     CalculateIncidentTime() {
-     
-            let date = moment(this.props.datetime).local();
-            if(!date.isValid()){
-                return 'No incident logged';
-            }
+  return (
+    <div className="incident-date">
+      <span>{CalculateIncidentTime()}</span>
+    </div>
+  );
 
-            let day = date.format('Do');
-            let month = date.format('MMMM');
-            let time = date.format('HH:mm');
-
-            return day + " " + month + " " + time;   
-
-     }
+  
+};
 
 
-    render() {
 
-        return (
-            <div className="incident-date">
-              <span>{ this.CalculateIncidentTime() }</span>     
-            </div>
-        );
-    }
-}
 
 export default HealthCardIncidentDate;
 

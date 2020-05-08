@@ -1,46 +1,29 @@
-import React, { Component } from 'react';
+import React, { useState, useEffect } from 'react';
 import socketIOClient from "socket.io-client";
 import SYSTEM_DATA from '../../system.data';
 
 import HealthCardList from '../../components/HealthCard/HealthCardList';
 
-class Dashboard extends Component {
+const Dashboard = () => {
+  const [healthApps, setHealthApps] = useState([]);
 
-    constructor(props) {
-        super(props);
+  useEffect(() => {
+    loadSocket();
+    //setHealthApps(SYSTEM_DATA);
+  }, [healthApps])
 
-        this.state = {
-            healthApps: []
-        }
-    }
+  return (
+    <div className="container">
+      <HealthCardList applications={healthApps} />
+    </div>
+  );
+}
 
-    async componentDidMount() {
-       // this.loadSocket();
-        this.loadMockData();
-    }
-
-    loadSocket() {
-       // const socket = socketIOClient('http://24.154.155.182:3000');
-       // const socket = socketIOClient('http://localhost:2222');
-        const socket = socketIOClient('http://healthchecks-server-digital-onlinepayments-dev.apps.nonprod.ocp.absa.co.za/');
-        socket.on("data", data => {
-            this.setState({ healthApps: data }, () => {
-                
-            });
-        })
-    }
-
-    loadMockData() {
-        this.setState({ healthApps: SYSTEM_DATA });
-    }
-
-    render() {
-        return (
-            <div className="container">
-                <HealthCardList applications={this.state.healthApps} />
-            </div>
-        );
-    }
+function loadSocket() {
+  const socket = socketIOClient(process.env.DEV_APP_URL);
+  socket.on("data", data => {
+    this.setHealthApps(data);
+  })
 }
 
 export default Dashboard;
