@@ -1,7 +1,7 @@
 import React from 'react';
 import SystemLogo from '../common/SystemLogo';
 
-const HealthCardHeader = ({name, application, source}) => (
+const HealthCardContent = ({name, application, source}) => (
     <div className="card-content">
     <SystemLogo name={name} />
     <h2>{application}</h2>
@@ -9,4 +9,4 @@ const HealthCardHeader = ({name, application, source}) => (
 </div>
 );
 
-export default HealthCardHeader;
+export default HealthCardContent;
